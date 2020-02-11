@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UGO_ANO.CLASS;
+using UGO_ANO.CLASSES;
+
 
 namespace UGO_ANO
 {
@@ -14,6 +16,8 @@ namespace UGO_ANO
             //Création fichier Lock
 
             //0 - Chargement des Logs (SeriLog)
+            SeriLog.InitSeriLog();
+            Log.Information("Démarrage de l'anonymisation..");
 
             //1 - Chargement fichier de paramétrage, connexion BDD ok ? Entitie Framework ?
 
@@ -42,6 +46,8 @@ namespace UGO_ANO
             }
 
             Console.ReadKey();
+
+            Log.Information("Fin de l'anonymisation avec succès");
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace UGO_ANO.CLASS
+namespace UGO_ANO.CLASSES
 {
     [DataContract]
     public class Field

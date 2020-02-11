@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UGO_ANO.CLASS
+namespace UGO_ANO.CLASSES
 {
     public static class Lock
     {

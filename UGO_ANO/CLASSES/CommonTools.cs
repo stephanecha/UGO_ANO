@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using Serilog;
 
-namespace UGO_ANO.CLASS
+namespace UGO_ANO.CLASSES
 {
     public static class CommonTools
     {
@@ -17,7 +14,6 @@ namespace UGO_ANO.CLASS
         {
             try
             {
-
                 JsonSerializerOptions opt = new JsonSerializerOptions();
                 opt.WriteIndented = true;
                 var options = new JsonSerializerOptions
@@ -29,7 +25,9 @@ namespace UGO_ANO.CLASS
                 File.WriteAllText("param.json", jsonString);
             }
             catch (Exception ex)
-            { }
+            {
+                Log.Error(ex, "Erreur sur la serialisation fichier param.json");
+            }
         }
 
         public static Param DeserialParam(string p_url)
@@ -47,7 +45,9 @@ namespace UGO_ANO.CLASS
                 return l_getParam;
             }
             catch (Exception ex)
-            { }
+            {
+                Log.Error(ex, "Erreur sur la deserialisation fichier param.json");
+            }
             return null;
         }
 

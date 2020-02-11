@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UGO_ANO.CLASS
+namespace UGO_ANO.CLASSES
 {
     [DataContract]
     public class Param
