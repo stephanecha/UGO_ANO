@@ -43,7 +43,10 @@ namespace UGO_ANO
                 Console.WriteLine($"TBolo:{chaineCaractere.TBolo()}");
                 Console.WriteLine($"TInt:{chaineNombre.TInt()}");
                 Console.WriteLine($"date naissance: {date},date ano: {Transformer.TDateNaissance(date)}");
+                Console.WriteLine($"date naissance: {date},date ano: {date.TDateNaissance()}");
             }
+
+
 
             Console.ReadKey();
 

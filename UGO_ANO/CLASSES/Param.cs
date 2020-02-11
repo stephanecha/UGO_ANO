@@ -17,7 +17,7 @@ namespace UGO_ANO.CLASSES
         [DataMember]
         public DateTime DATE_END { get; set; }
         [DataMember]
-        public List<Field> UGO { get; set; }
+        public List<Field> DataToAno { get; set; }
     }
 
 }

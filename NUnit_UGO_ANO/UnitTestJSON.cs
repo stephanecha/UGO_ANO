@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using UGO_ANO.CLASSES;
+using UGO_ANO.CLASS;
 using System.IO;
 
 namespace NUnit_UGO_ANO
@@ -30,15 +30,16 @@ namespace NUnit_UGO_ANO
 
 
             List<Field> list = new List<Field>();
-            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", FIELD = "LASTNAME_VC", TYPE = "TBOLO" });
-            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", FIELD = "FIRSTNAME_VC", TYPE = "TBOLO" });
-            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", FIELD = "BirthDate_DT", TYPE = "TDATE", OPTION = 1 });
-            list.Add(new Field() { TABLE = "T_POSTAL_ADDRESS", FIELD = "CODE_POSTAL", TYPE = "TINT" });
-            l_newParam.UGO = list;
-                        
-            CommonTools.SerialParam(l_newParam);
+            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", COLUMN = "LASTNAME_VC", TYPE = "TBOLO" });
+            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", COLUMN = "FIRSTNAME_VC", TYPE = "TBOLO" });
+            list.Add(new Field() { TABLE = "T_NATURAL_PERSON", COLUMN = "BirthDate_DT", TYPE = "TDATE", OPTION = 1 });
+            list.Add(new Field() { TABLE = "T_POSTAL_ADDRESS", COLUMN = "CODE_POSTAL", TYPE = "TINT" });
+            l_newParam.DataToAno = list;
 
+            CommonTools.SerialParam(l_newParam);
             FileAssert.Exists("param.json");
+            
+            
 
             Param l_getParam = CommonTools.DeserialParam("param.json");
             #endregion
