@@ -31,10 +31,15 @@ namespace UGO_ANO
 
             //chainecar=CTransformer.TBOLO(12);
 
-            Console.WriteLine(chaineCaractere.TBolo());
-            Console.WriteLine(chaineNombre.TInt());
-            Console.WriteLine(date.ToString("MM/dd/yyyy"));
-            Console.WriteLine($"date naissance: {date},date ano: {CTransformer.TDateNaissance(date)}");
+            for (int i = 0; i < 100000; i++)
+            {
+                Console.WriteLine($"ligne:{i}");
+                Console.WriteLine($"ligne:{i}");
+                Console.WriteLine(DateTime.Now);
+                Console.WriteLine($"TBolo:{chaineCaractere.TBolo()}");
+                Console.WriteLine($"TInt:{chaineNombre.TInt()}");
+                Console.WriteLine($"date naissance: {date},date ano: {CTransformer.TDateNaissance(date)}");
+            }
 
             Console.ReadKey();
         }
