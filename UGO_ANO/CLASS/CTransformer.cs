@@ -36,7 +36,7 @@ namespace UGO_ANO.CLASS
         {
 
             DateTime datemini = date.AddDays(-60);
-            int range = (date.AddDays(60) - datemini).Days;
+            int range = (date.AddDays(120) - datemini).Days;
             return datemini.AddDays(random.Next(range));
         }
 
