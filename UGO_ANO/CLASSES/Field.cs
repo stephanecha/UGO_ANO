@@ -13,7 +13,7 @@ namespace UGO_ANO.CLASS
         [DataMember]
         public string TABLE { get; set; }
         [DataMember]
-        public string FIELD { get; set; }
+        public string COLUMN { get; set; }
         [DataMember]
         public string TYPE { get; set; }
         [DataMember]
