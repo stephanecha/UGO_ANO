@@ -104,12 +104,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASS\CommonTools.cs" />
-    <Compile Include="CLASS\Field.cs" />
-    <Compile Include="CLASS\Lock.cs" />
-    <Compile Include="CLASS\Param.cs" />
-    <Compile Include="CLASS\Status.cs" />
-    <Compile Include="CLASS\Transformer.cs" />
+    <Compile Include="CLASSES\CommonTools.cs" />
+    <Compile Include="CLASSES\Field.cs" />
+    <Compile Include="CLASSES\Lock.cs" />
+    <Compile Include="CLASSES\Param.cs" />
+    <Compile Include="CLASSES\Status.cs" />
+    <Compile Include="CLASSES\Transformer.cs" />
+    <Compile Include="INTERFACES\Transformer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,8 +118,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="INTER\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
