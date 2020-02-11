@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AA926D3C-37C4-4A54-A6C9-767B970E0EE3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AUBAY_ANO</RootNamespace>
-    <AssemblyName>AUBAY_ANO</AssemblyName>
+    <RootNamespace>UGO_ANO</RootNamespace>
+    <AssemblyName>UGO_ANO</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AUBAY_ANO.CLASS
+namespace UGO_ANO.CLASS
 {
     public static class CLock
     {

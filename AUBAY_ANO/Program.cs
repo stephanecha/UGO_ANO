@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AUBAY_ANO.CLASS;
+using UGO_ANO.CLASS;
 
-namespace AUBAY_ANO
+namespace UGO_ANO
 {
     class Program
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace AUBAY_ANO.CLASS
+namespace UGO_ANO.CLASS
 {
     public static class CCommonTools
     {
