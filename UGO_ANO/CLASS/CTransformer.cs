@@ -34,10 +34,9 @@ namespace UGO_ANO.CLASS
 
         public static DateTime TDateNaissance(this DateTime date)
         {
-
-            DateTime datemini = date.AddDays(-60);
-            int range = (date.AddDays(120) - datemini).Days;
-            return datemini.AddDays(random.Next(range));
+            int interval = 120;//on considere une fenetre de 4mois pour le choix de la date aléatoire, autour de la date d'origine
+            DateTime datemini = date.AddDays(-interval / 2);
+            return datemini.AddDays(random.Next(interval));
         }
 
 
