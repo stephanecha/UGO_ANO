@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGO_ANO", "UGO_ANO\UGO_ANO.csproj", "{AA926D3C-37C4-4A54-A6C9-767B970E0EE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_UGO_ANO", "NUnit_UGO_ANO\NUnit_UGO_ANO.csproj", "{CC55892B-B106-4DF7-B0A6-E5021A6DCDA2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA926D3C-37C4-4A54-A6C9-767B970E0EE3} = {AA926D3C-37C4-4A54-A6C9-767B970E0EE3}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{AA926D3C-37C4-4A54-A6C9-767B970E0EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA926D3C-37C4-4A54-A6C9-767B970E0EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA926D3C-37C4-4A54-A6C9-767B970E0EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC55892B-B106-4DF7-B0A6-E5021A6DCDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC55892B-B106-4DF7-B0A6-E5021A6DCDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC55892B-B106-4DF7-B0A6-E5021A6DCDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC55892B-B106-4DF7-B0A6-E5021A6DCDA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

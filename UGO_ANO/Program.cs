@@ -23,27 +23,7 @@ namespace UGO_ANO
             //3.1 Mise a jour fichier Status.json
 
             //4 - Fin, Mise a jour Etat d'avancement         
-
-            #region Test Unitaire sur la serialisation/deserialisation du fichier param.json 
-            CParam l_newParam = new CParam();
-            l_newParam.DATABASE = "CONNECTIONSTRING";
-            l_newParam.DATE_BEGIN = DateTime.Now.Date;
-            l_newParam.DATE_END = DateTime.Now.AddDays(10).Date;
-
-
-            List<CField> list = new List<CField>();
-            list.Add(new CField() { TABLE = "T_NATURAL_PERSON", FIELD = "LASTNAME_VC", TYPE = "TBOLO" });
-            list.Add(new CField() { TABLE = "T_NATURAL_PERSON", FIELD = "FIRSTNAME_VC", TYPE = "TBOLO" });
-            list.Add(new CField() { TABLE = "T_NATURAL_PERSON", FIELD = "BirthDate_DT", TYPE = "TDATE", OPTION = 1 });
-            list.Add(new CField() { TABLE = "T_POSTAL_ADDRESS", FIELD = "CODE_POSTAL", TYPE = "TINT" });
-            l_newParam.UGO = list;
-
-
-            CCommonTools.SerialParam(l_newParam);
-
-            CParam l_getParam = CCommonTools.DeserialParam("Param.json");
-            #endregion
-
+            
 
             string chaineCaractere ="dupont" ;
             string chaineNombre = "054654";
