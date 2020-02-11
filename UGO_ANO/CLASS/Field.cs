@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace UGO_ANO.CLASS
 {
     [DataContract]
-    public class CField
+    public class Field
     {
         [DataMember]
         public string TABLE { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UGO_ANO.CLASS
 {
-    public static class CStatus
+    public static class Status
     {
 
 

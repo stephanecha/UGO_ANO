@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UGO_ANO.CLASS
 {
-    public static class CTransformer
+    public static class Transformer
     {
 
         private static Random random = new Random();

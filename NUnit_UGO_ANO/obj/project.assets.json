@@ -4643,19 +4643,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\0rverger\\.nuget\\packages\\": {}
+    "C:\\Users\\0schamblain\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\0rverger\\source\\repos\\stephanecha\\UGO_ANO\\NUnit_UGO_ANO\\NUnit_UGO_ANO.csproj",
+      "projectUniqueName": "C:\\Users\\0schamblain\\source\\repos\\UGO_ANO\\NUnit_UGO_ANO\\NUnit_UGO_ANO.csproj",
       "projectName": "NUnit_UGO_ANO",
-      "projectPath": "C:\\Users\\0rverger\\source\\repos\\stephanecha\\UGO_ANO\\NUnit_UGO_ANO\\NUnit_UGO_ANO.csproj",
-      "packagesPath": "C:\\Users\\0rverger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\0rverger\\source\\repos\\stephanecha\\UGO_ANO\\NUnit_UGO_ANO\\obj\\",
+      "projectPath": "C:\\Users\\0schamblain\\source\\repos\\UGO_ANO\\NUnit_UGO_ANO\\NUnit_UGO_ANO.csproj",
+      "packagesPath": "C:\\Users\\0schamblain\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\0schamblain\\source\\repos\\UGO_ANO\\NUnit_UGO_ANO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\0rverger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0schamblain\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4668,8 +4668,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\0rverger\\source\\repos\\stephanecha\\UGO_ANO\\UGO_ANO\\UGO_ANO.csproj": {
-              "projectPath": "C:\\Users\\0rverger\\source\\repos\\stephanecha\\UGO_ANO\\UGO_ANO\\UGO_ANO.csproj"
+            "C:\\Users\\0schamblain\\source\\repos\\UGO_ANO\\UGO_ANO\\UGO_ANO.csproj": {
+              "projectPath": "C:\\Users\\0schamblain\\source\\repos\\UGO_ANO\\UGO_ANO\\UGO_ANO.csproj"
             }
           }
         }

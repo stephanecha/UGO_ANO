@@ -9,11 +9,11 @@ using System.Text.Encodings.Web;
 
 namespace UGO_ANO.CLASS
 {
-    public static class CCommonTools
+    public static class CommonTools
     {
         //Doit contenir les méthodes de chargement JSON (Chargement fichier paramétrage + Chargement et sauvegarde fichier Status)
 
-        public static void SerialParam(CParam p_Status)
+        public static void SerialParam(Param p_Status)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace UGO_ANO.CLASS
             { }
         }
 
-        public static CParam DeserialParam(string p_url)
+        public static Param DeserialParam(string p_url)
         {
             string l_read;
             try
@@ -42,7 +42,7 @@ namespace UGO_ANO.CLASS
                     l_read = u_sr.ReadToEnd();
                 }
 
-                CParam l_getParam = JsonSerializer.Deserialize<CParam>(l_read);
+                Param l_getParam = JsonSerializer.Deserialize<Param>(l_read);
 
                 return l_getParam;
             }

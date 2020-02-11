@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UGO_ANO.CLASS
 {
-    public static class CLock
+    public static class Lock
     {
         public static bool createLock()
         {

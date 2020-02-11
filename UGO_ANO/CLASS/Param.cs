@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace UGO_ANO.CLASS
 {
     [DataContract]
-    public class CParam
+    public class Param
     {
         [DataMember]
         public string DATABASE { get; set; }
@@ -17,7 +17,7 @@ namespace UGO_ANO.CLASS
         [DataMember]
         public DateTime DATE_END { get; set; }
         [DataMember]
-        public List<CField> UGO { get; set; }
+        public List<Field> UGO { get; set; }
     }
 
 }
