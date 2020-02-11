@@ -1,0 +1,31 @@
+{
+  "DATABASE": "CONNECTIONSTRING",
+  "DATE_BEGIN": "2020-02-11T00:00:00+01:00",
+  "DATE_END": "2020-02-21T00:00:00+01:00",
+  "UGO": [
+    {
+      "TABLE": "T_NATURAL_PERSON",
+      "FIELD": "LASTNAME_VC",
+      "TYPE": "TBOLO",
+      "OPTION": 0
+    },
+    {
+      "TABLE": "T_NATURAL_PERSON",
+      "FIELD": "FIRSTNAME_VC",
+      "TYPE": "TBOLO",
+      "OPTION": 0
+    },
+    {
+      "TABLE": "T_NATURAL_PERSON",
+      "FIELD": "BirthDate_DT",
+      "TYPE": "TDATE",
+      "OPTION": 1
+    },
+    {
+      "TABLE": "T_POSTAL_ADDRESS",
+      "FIELD": "CODE_POSTAL",
+      "TYPE": "TINT",
+      "OPTION": 0
+    }
+  ]
+}
