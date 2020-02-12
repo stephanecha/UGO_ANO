@@ -1,5 +1,5 @@
 {
-  "DATABASE": "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;",
+  "DATABASE": "Server=EXT-PO1939WB3\\SQLEXPRESS;Database=UGO;User Id=adm;Password=adm;",
   "DATE_BEGIN": "2020-02-11T00:00:00+01:00",
   "DATE_END": "2020-02-21T00:00:00+01:00",
   "UGO": [

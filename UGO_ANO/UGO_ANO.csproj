@@ -157,18 +157,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLASSES\CommonTools.cs" />
+    <Compile Include="CLASSES\Database.cs" />
     <Compile Include="CLASSES\Field.cs" />
     <Compile Include="CLASSES\Lock.cs" />
     <Compile Include="CLASSES\Param.cs" />
     <Compile Include="CLASSES\SeriLog.cs" />
     <Compile Include="CLASSES\Status.cs" />
     <Compile Include="CLASSES\Transformer.cs" />
+    <Compile Include="INTERFACES\Database.cs" />
     <Compile Include="INTERFACES\Transformer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CONFIG\param.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

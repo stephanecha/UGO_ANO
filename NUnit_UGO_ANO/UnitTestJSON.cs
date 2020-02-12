@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using UGO_ANO.CLASS;
+using UGO_ANO.CLASSES;
 using System.IO;
 
 namespace NUnit_UGO_ANO
@@ -24,7 +24,7 @@ namespace NUnit_UGO_ANO
 
             #region  
             Param l_newParam = new Param();
-            l_newParam.DATABASE = "CONNECTIONSTRING";
+            l_newParam.DATABASE = "Server=EXT-PO1939WB3;Database=UGO;User Id=0rverger;Password=Mdp@54669996;";
             l_newParam.DATE_BEGIN = DateTime.Now.Date;
             l_newParam.DATE_END = DateTime.Now.AddDays(10).Date;
 

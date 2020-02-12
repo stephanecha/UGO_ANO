@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,10 +22,8 @@ namespace UGO_ANO.CLASSES
                 return false;
             }
             catch (Exception ex)
-            { }
-            finally
             {
-
+                Log.Fatal(ex, "Erreur sur la création du fichier LOCK");
             }
             return false;
         }
@@ -36,10 +35,10 @@ namespace UGO_ANO.CLASSES
                 File.Delete("LOCK");
             }
             catch (Exception ex)
-            { }
-            finally
             {
+                Log.Fatal(ex, "Erreur sur la suppression du fichier LOCK");
             }
+         
         }
     }
 }

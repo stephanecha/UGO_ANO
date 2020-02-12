@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UGO_ANO.INTER
+namespace UGO_ANO.INTERFACES
 {
     interface ITransformer
     {

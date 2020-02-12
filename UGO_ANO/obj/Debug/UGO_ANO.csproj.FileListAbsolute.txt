@@ -117,7 +117,6 @@ C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Ext
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.File.pdb
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.File.xml
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.csprojAssemblyReference.cache
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.exe.config
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.csproj.CopyComplete
 C:\Users\0rverger\Source\Repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.exe
@@ -388,3 +387,4 @@ C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\zh-Hans\Mic
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.RollingFile.dll
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.RollingFile.xml
+C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.csprojAssemblyReference.cache

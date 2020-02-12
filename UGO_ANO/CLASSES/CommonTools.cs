@@ -6,10 +6,17 @@ using Serilog;
 
 namespace UGO_ANO.CLASSES
 {
+    /// <summary>
+    /// Doit contenir les méthodes de chargement JSON (Chargement fichier paramétrage + Chargement et sauvegarde fichier Status)
+    /// </summary>
     public static class CommonTools
     {
-        //Doit contenir les méthodes de chargement JSON (Chargement fichier paramétrage + Chargement et sauvegarde fichier Status)
+        
 
+        /// <summary>
+        /// Temporaire afin de générer divers fichiers de paramétrages
+        /// </summary>
+        /// <param name="p_Status"></param>
         public static void SerialParam(Param p_Status)
         {
             try
@@ -26,7 +33,7 @@ namespace UGO_ANO.CLASSES
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Erreur sur la serialisation fichier param.json");
+                Log.Fatal(ex, "Erreur sur la serialisation fichier param.json");
             }
         }
 
@@ -46,7 +53,7 @@ namespace UGO_ANO.CLASSES
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Erreur sur la deserialisation fichier param.json");
+                Log.Fatal(ex, "Erreur sur la deserialisation fichier param.json");
             }
             return null;
         }
