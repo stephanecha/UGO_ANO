@@ -351,3 +351,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+*.cache
+*.json
+*.exe
+*.pdb
+# add an exception (using !) to the preceding rule to track a specific file
+!package.json
