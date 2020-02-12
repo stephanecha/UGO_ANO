@@ -14,6 +14,7 @@ namespace UGO_ANO.CLASSES
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.AppSettings(null, "UGO_ANO.exe.config")
                 .CreateLogger();
+
         }
     }
 }

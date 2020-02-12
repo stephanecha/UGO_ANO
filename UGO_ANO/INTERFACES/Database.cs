@@ -15,8 +15,9 @@ namespace UGO_ANO.INTERFACES
         /// <param name="p_connectionString"></param>
         /// <returns></returns>
         bool InitDatabase(string p_connectionString);
-        
 
+        //Vérifie les tables et colonnes si elles existent bien en BDD
+        bool CheckTableColumn(List<string> p_listTable, List<string> p_listColumn);
         
     }
 }
