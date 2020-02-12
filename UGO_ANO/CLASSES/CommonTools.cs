@@ -47,7 +47,10 @@ namespace UGO_ANO.CLASSES
                     l_read = u_sr.ReadToEnd();
                 }
 
-                Param l_getParam = JsonSerializer.Deserialize<Param>(l_read);
+                Param l_getParam = JsonSerializer.Deserialize<Param>(l_read, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
 
                 return l_getParam;
             }
