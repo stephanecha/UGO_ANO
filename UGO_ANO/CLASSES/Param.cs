@@ -11,11 +11,11 @@ namespace UGO_ANO.CLASSES
     public class Param
     {
         [DataMember]
-        public string DATABASE { get; set; }
+        public string Database { get; set; }
         [DataMember]
-        public DateTime DATE_BEGIN { get; set; }
+        public DateTime DateBegin { get; set; }
         [DataMember]
-        public DateTime DATE_END { get; set; }
+        public DateTime DateEnd { get; set; }
         [DataMember]
         public List<Field> DataToAno { get; set; }
     }

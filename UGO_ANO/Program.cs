@@ -26,7 +26,7 @@ namespace UGO_ANO
                 string l_urlParam = ConfigurationManager.AppSettings["URL_PARAM"];
                 Param l_param = CommonTools.DeserialParam(l_urlParam);
                 Database l_database = new Database();
-                if (!l_database.InitDatabase(l_param.DATABASE))
+                if (!l_database.InitDatabase(l_param.Database))
                     throw new Exception("Impossible de se connecter à la base de données");
 
 

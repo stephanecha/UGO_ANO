@@ -11,13 +11,13 @@ namespace UGO_ANO.CLASSES
     public class Field
     {
         [DataMember]
-        public string TABLE { get; set; }
+        public string Table { get; set; }
         [DataMember]
-        public string COLUMN { get; set; }
+        public string Column { get; set; }
         [DataMember]
-        public string TYPE { get; set; }
+        public string Type { get; set; }
         [DataMember]
-        public int OPTION { get; set; }
+        public int Option { get; set; }
 
     }
 }
