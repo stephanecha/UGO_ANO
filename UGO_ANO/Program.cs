@@ -22,48 +22,60 @@ namespace UGO_ANO
                 SeriLog.InitSeriLog();
                 Log.Information("Démarrage de l'anonymisation..");
 
-                //1 - Chargement fichier de paramétrage, connexion BDD ok ? Entitie Framework ?
+                //0.1 - Chargement des données depuis le fichier .config
                 string l_urlParam = ConfigurationManager.AppSettings["URL_PARAM"];
+                string l_urlStatus = ConfigurationManager.AppSettings["URL_STATUS"];
+
+                //1 - Chargement fichier de paramétrage, connexion BDD ok ? Entitie Framework ?
                 Param l_param = CommonTools.DeserialParam(l_urlParam);
                 Database l_database = new Database();
                 if (!l_database.InitDatabase(l_param.Database))
                     throw new Exception("Impossible de se connecter à la base de données");
 
-
-                    //2 - Init etat d'avancement
-
-                    //3 - Traitement anonymisation
-                    //3.1 Mise a jour fichier Status.json
-
-                    //4 - Fin, Mise a jour Etat d'avancement         
+                //2 - Init etat d'avancement
+                Status l_status = InitStatus();
 
 
-                string chaineCaractere = "dupont";
-                string chaineNombre = "054654";
-                DateTime date = new DateTime(2018, 6, 1);
+                //3 - Traitement anonymisation
+                //3.1 Mise a jour fichier Status.json
 
-                //chainecar=CTransformer.TBOLO(12);
+                //4 - Fin, Mise a jour Etat d'avancement         
 
-                for (int i = 0; i < 1000; i++)
-                {
-                    Console.WriteLine("\n");
-                    Console.WriteLine($"ligne:{i}");
-                    Console.WriteLine(DateTime.Now);
-                    Console.WriteLine($"TBolo:{chaineCaractere.TBolo()}");
-                    Console.WriteLine($"TInt:{chaineNombre.TInt()}");
-                    Console.WriteLine($"date naissance: {date},date ano: {Transformer.TDateNaissance(date)}");
-                    Console.WriteLine($"date naissance: {date},date ano: {date.TDateNaissance()}");
-                }
 
-              
-
+                #region TEST STEPH
+                //string chaineCaractere = "dupont";
+                //string chaineNombre = "054654";
+                //DateTime date = new DateTime(2018, 6, 1);
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    Console.WriteLine("\n");
+                //    Console.WriteLine($"ligne:{i}");
+                //    Console.WriteLine(DateTime.Now);
+                //    Console.WriteLine($"TBolo:{chaineCaractere.TBolo()}");
+                //    Console.WriteLine($"TInt:{chaineNombre.TInt()}");
+                //    Console.WriteLine($"date naissance: {date},date ano: {Transformer.TDateNaissance(date)}");
+                //    Console.WriteLine($"date naissance: {date},date ano: {date.TDateNaissance()}");
+                //}
+                #endregion
+                               
                 Log.Information("Fin de l'anonymisation avec succès");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Fatal(ex, "Fatal : Une erreur a été détectée");
             }
             Console.ReadKey();
+        }
+
+        static Status InitStatus()
+        {
+            Status l_status = new Status();
+
+            l_status.DateBegin = DateTime.Now;
+            //l_status.LogName =
+            l_status.State = 0;
+
+            return l_status;
         }
     }
 }

@@ -46,5 +46,32 @@ namespace NUnit_UGO_ANO
 
             Assert.IsNotNull(l_getParam);
         }
+
+
+        /// <summary>
+        /// Test Unitaire sur la serialisation/deserialisation du fichier param.json
+        /// </summary>
+        [Test]
+        public void Test_JSONStatus()
+        {
+            File.Delete("statut.json");
+
+            #region  
+            Status l_newStatus = new Status();
+            l_newStatus.DateBegin = DateTime.Now;
+            l_newStatus.Error = "Error TEST";
+            l_newStatus.Lines = 123456789;
+            l_newStatus.LogName = "LogName.log";
+            l_newStatus.State = 1;
+            l_newStatus.Year = 2020;
+
+            CommonTools.SerialStatus(l_newStatus, "statut.json");
+            FileAssert.Exists("statut.json");
+                       
+            Status l_getStatus = CommonTools.DeserialStatus("statut.json");
+            #endregion
+
+            Assert.IsNotNull(l_getStatus);
+        }
     }
 }

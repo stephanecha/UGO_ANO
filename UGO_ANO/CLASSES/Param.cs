@@ -19,5 +19,4 @@ namespace UGO_ANO.CLASSES
         [DataMember]
         public List<Field> DataToAno { get; set; }
     }
-
 }

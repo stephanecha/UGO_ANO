@@ -387,4 +387,6 @@ C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\zh-Hans\Mic
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.RollingFile.dll
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\Serilog.Sinks.RollingFile.xml
+C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\bin\Debug\System.Data.dll
 C:\Users\0rverger\source\repos\stephanecha\UGO_ANO\UGO_ANO\obj\Debug\UGO_ANO.csprojAssemblyReference.cache

@@ -8,7 +8,7 @@ using Serilog;
 
 namespace UGO_ANO.CLASSES
 {
-    class Database : INTERFACES.IDatabase
+    public class Database : INTERFACES.IDatabase
     {
         string _connectionString;
 
