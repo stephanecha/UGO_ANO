@@ -21,8 +21,11 @@ namespace NUnit_UGO_ANO
         public void Test_Database()
         {
 
-            string l_connectionStringOK = "Server=localhost\\SQLEXPRESS;Database=UGO;User Id=adm;Password=adm;";
-            string l_connectionStringKO = "Server=localhost\\SQLEXPRESS;Database=UGO;User Id=adm;Password=;";
+            string l_connectionStringOK = "Server=localhost;Database=UGO;User Id=adm;Password=adm;";
+            
+
+
+            string l_connectionStringKO = "Server=EXT-PO1939WB3\\SQLEXPRESS;Database=UGO;User Id=adm;Password=;";
 
             Database l_database = new Database();
             Assert.IsFalse(l_database.InitDatabase(l_connectionStringKO));
@@ -34,10 +37,10 @@ namespace NUnit_UGO_ANO
         public void Test_CheckTableColumnType()
         {
             Database l_database = new Database();
-            l_database.InitDatabase("Server=localhost\\SQLEXPRESS;Database=UGO;User Id=adm;Password=adm;");
+            l_database.InitDatabase("Server=localhost;Database=UGO;User Id=adm;Password=adm;");
 
             #region FICHIER OK
-            List<Field> list = new List<Field>();
+            List <Field> list = new List<Field>();
             list.Add(new Field() { Table = "T_NATURAL_PERSON", Column = "LASTNAME_VC", Type = "TBOLO" });
             list.Add(new Field() { Table = "T_NATURAL_PERSON", Column = "FIRSTNAME_VC", Type = "TBOLO" });
             list.Add(new Field() { Table = "T_NATURAL_PERSON", Column = "BirthDate_DT", Type = "TDATE", Option = 1 });
