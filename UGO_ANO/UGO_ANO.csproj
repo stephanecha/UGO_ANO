@@ -163,6 +163,7 @@
     <Compile Include="CLASSES\CommonTools.cs" />
     <Compile Include="CLASSES\Database.cs" />
     <Compile Include="CLASSES\Field.cs" />
+    <Compile Include="CLASSES\InformationSchema.cs" />
     <Compile Include="CLASSES\Lock.cs" />
     <Compile Include="CLASSES\Param.cs" />
     <Compile Include="CLASSES\SeriLog.cs" />

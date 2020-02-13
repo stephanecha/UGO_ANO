@@ -38,7 +38,10 @@ namespace UGO_ANO
                 if (!l_database.InitDatabase(l_param.Database))
                     throw new Exception("Impossible de se connecter à la base de données");
 
-                //l_database.CheckTableColumn(null, null);
+                int l_result = l_database.CheckTableColumnType(l_param.DataToAno);
+                if (l_result != 0)
+                    return;
+
                 #endregion
 
                 #region 2 - Init etat d'avancement

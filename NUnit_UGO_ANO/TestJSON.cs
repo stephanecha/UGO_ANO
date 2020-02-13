@@ -6,7 +6,7 @@ using System.IO;
 
 namespace NUnit_UGO_ANO
 {
-    public class Tests
+    public class TestJSON
     {
         [SetUp]
         public void Setup()
@@ -24,7 +24,7 @@ namespace NUnit_UGO_ANO
 
             #region  
             Param l_newParam = new Param();
-            l_newParam.Database = "Server=EXT-PO1939WB3;Database=UGO;User Id=0rverger;Password=Mdp@54669996;";
+            l_newParam.Database = "Server=EXT-PO1939WB3\\SQLEXPRESS;Database=UGO;User Id=adm;Password=adm;";
             l_newParam.DateBegin = DateTime.Now.Date;
             l_newParam.DateEnd = DateTime.Now.AddDays(10).Date;
 

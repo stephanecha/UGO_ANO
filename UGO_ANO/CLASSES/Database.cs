@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Serilog;
-using System.Data;
 
 namespace UGO_ANO.CLASSES
 {
@@ -15,33 +11,82 @@ namespace UGO_ANO.CLASSES
 
         public string ConnectionString { get => _connectionString; set => _connectionString = value; }
 
-        public bool CheckTableColumn(List<string> p_listTable, List<string> p_listColumn)
+        /// <summary>
+        /// Vérification des champs renseignés dans le fichier param.json
+        /// Return  0 si ok
+        ///         1 si liaison Table.Column n'existe pas
+        ///         2 erreur de typage
+        ///         -1 erreur 
+        /// </summary>
+        /// <param name="p_dataToAno"></param>
+        /// <returns></returns>
+        public int CheckTableColumnType(List<Field> p_dataToAno)
         {
-            string queryString = "select UPPER(TABLE_NAME), UPPER(COLUMN_NAME) from information_schema.COLUMNS";
+            string queryString = "select UPPER(TABLE_NAME) as TN, UPPER(COLUMN_NAME) as CN, DATA_TYPE as DT from information_schema.COLUMNS";
+            string l_missing = string.Empty;
+            List<InformationSchema> l_listInformationSchema = new List<InformationSchema>();
+            InformationSchema l_temp;
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    
+
                     SqlCommand command = new SqlCommand(queryString, connection);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            //Supprimer les table et colonne qui sont présentent dans la base de données
+                            l_listInformationSchema.Add(new InformationSchema() { Table = reader[0].ToString(), Column = reader[1].ToString(), Type = reader[2].ToString() });
                         }
-                        //Si il reste des éléments dans l'un des deux liste en paramètre alors elles n'existent pas
                     }
+
+                    foreach (Field f_field in p_dataToAno)
+                    {
+                        l_temp = l_listInformationSchema.Find(delegate (InformationSchema p_is) { return p_is.Table == f_field.Table.ToUpper() && p_is.Column == f_field.Column.ToUpper(); });
+                        if (l_temp == null)
+                        {
+                            Log.Warning(string.Format("Attention la liaison {0}.{1} n'existe pas. Merci de corriger avant de relancer l'application", f_field.Table, f_field.Column));
+                            return 1;
+                        }
+                        switch (l_temp.Type)
+                        {
+                            case "varchar":
+                            case "nchar":
+                            case "nvarchar":
+                            case "char":
+                                if (!f_field.Type.ToUpper().Equals("TBOLO") && !f_field.Type.ToUpper().Equals("TINT"))
+                                {
+                                    Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
+                                }
+                                break;
+                            case "date":
+                            case "datetime":
+                                if (!f_field.Type.ToUpper().Equals("TDATE"))
+                                {
+                                    Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
+                                }
+                                break;
+                            default://TINT = bit,float,int,numeric,smallint
+                                if (!f_field.Type.ToUpper().Equals("TINT"))
+                                {
+                                    Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
+                                }
+                                break;
+                        }
+                    }
+                    return 0;
                 }
+                //TINT = bit,float,int,numeric,smallint,
+                //TBOLO = varchar,char,nchar,nvarchar
+                //TDATE = date,datetime
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "Erreur sur la vérification du fichier de paramétrage");
-                return false;
+                return -1;
             }
-            return true;
         }
 
         public bool InitDatabase(string p_connectionString)
@@ -64,8 +109,5 @@ namespace UGO_ANO.CLASSES
             }
             return true;
         }
-
-
-
     }
 }

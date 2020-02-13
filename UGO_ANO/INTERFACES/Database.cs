@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UGO_ANO.CLASSES;
 
 namespace UGO_ANO.INTERFACES
 {
@@ -17,7 +18,6 @@ namespace UGO_ANO.INTERFACES
         bool InitDatabase(string p_connectionString);
 
         //Vérifie les tables et colonnes si elles existent bien en BDD
-        bool CheckTableColumn(List<string> p_listTable, List<string> p_listColumn);
-        
+        int CheckTableColumnType(List<Field> p_dataToAno);
     }
 }
