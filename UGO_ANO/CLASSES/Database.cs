@@ -100,7 +100,7 @@ namespace UGO_ANO.CLASSES
                     connection.Open();
                     connection.Close();
                 }
-                Log.Information("Connection Base de donnée  OK");
+                Log.Information("Connection Base de données  OK");
             }
             catch (Exception ex)
             {
