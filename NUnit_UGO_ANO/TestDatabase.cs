@@ -21,7 +21,10 @@ namespace NUnit_UGO_ANO
         public void Test_Database()
         {
 
-            string l_connectionStringOK = "Server=EXT-PO1939WB3\\SQLEXPRESS;Database=UGO;User Id=adm;Password=adm;";
+            string l_connectionStringOK = "Server=localhost;Database=UGO;User Id=adm;Password=adm;";
+            
+
+
             string l_connectionStringKO = "Server=EXT-PO1939WB3\\SQLEXPRESS;Database=UGO;User Id=adm;Password=;";
 
             Database l_database = new Database();
