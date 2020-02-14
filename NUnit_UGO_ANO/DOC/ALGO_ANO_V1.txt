@@ -1,0 +1,68 @@
+void anonymiser(List<Field> p_listField, int p_yearBegin = -1, int p_yearEnd = -1)
+{
+                //Créer fonction "FactParam" qui retourne l'élément suivant avec comme clé le nom de la table
+                //Cette focntion doit regrouper les colonnes par table
+                Dictionary<string, List<Column>> l_dicToAno = FactParam(p_listField); 
+                               
+                //On doit retrouver l'année minimum et l'année maximum pour toutes les tables à l'aide de cette requête (temps de traitement court sur INTEG2) :
+                //select CASE WHEN min(YEAR(CreationDate_DT)) > min(YEAR(UpdateDate_DT)) Then min(YEAR(UpdateDate_DT)) else min(YEAR(CreationDate_DT)) END as yearMin
+                //, CASE WHEN max(YEAR(UpdateDate_DT)) > max(YEAR(CreationDate_DT)) then max(YEAR(UpdateDate_DT)) else max(YEAR(CreationDate_DT)) end as yearMax from T_CLIENT;
+                int yearMin, yearMax;
+
+                //On doit croiser le résultat ci-dessus avec les données dans le ficher de paramétrage
+
+                //Boucle for par année
+                for (int f_year = yearMin; f_year++ ; f_year <= YearMax)
+                {
+                               foreach(KeyValuePair<string, List<Column> f_table in  l_dicToAno)
+                               {
+                                               //Va récupérer les données en BDD (voir détails plus loin)
+                                               Dictionary<string, List<Column>> l_listToUpdate = GetSource(f_table.Key, f_table.Value, f_year);
+                               
+                                               //Va anonymiser les champs (voir détails plus loin)
+                                               SetAnoSource(l_listToUpdate);
+                               
+                                               //Va mettre à jour les champs (voir détails plus loin)
+                                               UpdateAnoSource(l_listToUpdate);
+                               }
+                               //Mettre à jour le fichier statut.json pour afficher l'année achevée
+                }
+}
+
+class Column
+{
+                string PrimaryKName;
+                object PrimaryKValue;
+                
+                string ColumnName;
+                Type Type;
+                int Option;
+                object Source;
+                object SourceAno; 
+}
+
+Dictionary<string, List<Column>> GetSource(string p_nomTable, List<Column> p_columns,int p_year)
+{
+                //On récupère le nom de la clée primaire de la table via cette requête : 
+                //SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+                //WHERE CONSTRAINT_NAME LIKE 'PK%' AND TABLE_NAME = 'TABLE_NAME'
+                
+                //On sauvegardera le nom du champ clée primaire dans la class Column
+                
+                //On lance ensuite un select avec le champ id et le nom de la ou des colonnes, avec une condition sur la date comprise entre p_year et p_year + 1
+                //On stock le résultat ainsi que la valeur de la clée primaire dans cette variable :
+                Dictionary<string, List<Column>> l_source;
+                return l_source;
+}
+
+void SetAnoSource(Dictionary<string, List<Column>> p_listToUpdate)
+{
+                //Va parcourir la collection en ajoutant la valeur anonymisé dans le champ SourceAno de la class Column
+                
+                //Retourne la collection entré en paramètre
+}
+
+void UpdateAnoSource(Dictionary<string, List<Column>> p_listToUpdate)
+{
+                //Va parcourir toute la List<Column> pour mettre à jour la table suivant l'id
+}

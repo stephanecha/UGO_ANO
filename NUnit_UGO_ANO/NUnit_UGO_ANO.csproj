@@ -17,4 +17,8 @@
     <ProjectReference Include="..\UGO_ANO\UGO_ANO.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DOC\" />
+  </ItemGroup>
+
 </Project>
