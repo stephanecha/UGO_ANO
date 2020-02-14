@@ -1,23 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 
 namespace UGO_ANO.CLASSES
 {
-    [DataContract]
     public class Field
     {
-        [DataMember]
         public string Table { get; set; }
-        [DataMember]
         public string Column { get; set; }
-        [DataMember]
-        public string Type { get; set; }
-        [DataMember]
-        public int Option { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Type Type { get; set; }
+
+        public int Option { get; set; }
     }
+
+    public enum Type
+    {
+        [EnumMember(Value = "TINT")]
+        TINT,
+        [EnumMember(Value = "TBOLO")]
+        TBOLO,
+        [EnumMember(Value = "TDATE")]
+        TDATE
+    };
 }

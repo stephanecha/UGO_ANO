@@ -56,14 +56,14 @@ namespace UGO_ANO.CLASSES
                             case "nchar":
                             case "nvarchar":
                             case "char":
-                                if (!f_field.Type.ToUpper().Equals("TBOLO") && !f_field.Type.ToUpper().Equals("TINT"))
+                                if (!f_field.Type.Equals(Type.TBOLO) && !f_field.Type.Equals(Type.TINT))
                                 {
                                     Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger le fichier paramétrage json avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
                                 }
                                 break;
                             case "date":
                             case "datetime":
-                                if (!f_field.Type.ToUpper().Equals("TDATE"))
+                                if (!f_field.Type.Equals(Type.TDATE))
                                 {
                                     Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger le fichier paramétrage json avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
                                 }
@@ -73,7 +73,7 @@ namespace UGO_ANO.CLASSES
                                 }
                                 break;
                             default://TINT = bit,float,int,numeric,smallint
-                                if (!f_field.Type.ToUpper().Equals("TINT"))
+                                if (!f_field.Type.Equals(Type.TINT))
                                 {
                                     Log.Warning(string.Format("Attention le transformateur {0} n'est pas adapté pour la colonne {1}.{2}. Merci de corriger le fichier paramétrage json avant de relancer l'application", f_field.Type, f_field.Table, f_field.Column)); return 2;
                                 }

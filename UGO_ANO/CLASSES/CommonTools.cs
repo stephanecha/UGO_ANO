@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Text.Json;
-using System.Text.Encodings.Web;
 using Serilog;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace UGO_ANO.CLASSES
 {
@@ -11,7 +11,7 @@ namespace UGO_ANO.CLASSES
     /// </summary>
     public static class CommonTools
     {
-        
+
 
         /// <summary>
         /// Temporaire afin de générer divers fichiers de paramétrages
@@ -21,19 +21,22 @@ namespace UGO_ANO.CLASSES
         {
             try
             {
-                JsonSerializerOptions opt = new JsonSerializerOptions();
-                opt.WriteIndented = true;
-                var options = new JsonSerializerOptions
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Converters.Add(new StringEnumConverter());
+                serializer.Formatting = Formatting.Indented;
+                serializer.DateFormatString = "dd/MM/yyyy";
+                serializer.NullValueHandling = NullValueHandling.Ignore;
+
+                using (StreamWriter sw = new StreamWriter(@"param.json"))
+                using (JsonWriter writer = new JsonTextWriter(sw))
                 {
-                    Encoder = JavaScriptEncoder.Default,
-                    WriteIndented = true
-                };
-                string jsonString = JsonSerializer.Serialize(p_Param, p_Param.GetType(), options);
-                File.WriteAllText("param.json", jsonString);
+                    serializer.Serialize(writer, p_Param, typeof(Param));
+                }
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Erreur sur la serialisation fichier param.json");
+                throw ex;
             }
         }
 
@@ -47,18 +50,17 @@ namespace UGO_ANO.CLASSES
                     l_read = u_sr.ReadToEnd();
                 }
 
-                Param l_getParam = JsonSerializer.Deserialize<Param>(l_read, new JsonSerializerOptions
+                Param l_getParam = JsonConvert.DeserializeObject<Param>(l_read, new JsonSerializerSettings
                 {
-                    PropertyNameCaseInsensitive = true
+                    DateFormatString = "dd/MM/yyyy"
                 });
-
                 return l_getParam;
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Erreur sur la deserialisation fichier param.json");
+                throw ex;
             }
-            return null;
         }
 
         /// <summary>
@@ -73,19 +75,23 @@ namespace UGO_ANO.CLASSES
                 if (File.Exists(p_url))
                     File.Delete(p_url);
 
-                JsonSerializerOptions opt = new JsonSerializerOptions();
-                opt.WriteIndented = true;
-                var options = new JsonSerializerOptions
+
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Converters.Add(new StringEnumConverter());
+                serializer.Formatting = Formatting.Indented;
+                serializer.DateFormatString = "dd/MM/yyyy";
+                serializer.NullValueHandling = NullValueHandling.Ignore;
+
+                using (StreamWriter sw = new StreamWriter(p_url))
+                using (JsonWriter writer = new JsonTextWriter(sw))
                 {
-                    Encoder = JavaScriptEncoder.Default,
-                    WriteIndented = true
-                };
-                string jsonString = JsonSerializer.Serialize(p_Status, p_Status.GetType(), options);
-                File.WriteAllText(p_url, jsonString);
+                    serializer.Serialize(writer, p_Status);
+                }
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Erreur sur la serialisation fichier status.json");
+                throw ex;
             }
         }
 
@@ -104,19 +110,17 @@ namespace UGO_ANO.CLASSES
                     l_read = u_sr.ReadToEnd();
                 }
 
-                Status l_getStatus = JsonSerializer.Deserialize<Status>(l_read, new JsonSerializerOptions
+                Status l_getStatus = JsonConvert.DeserializeObject<Status>(l_read, new JsonSerializerSettings
                 {
-                    PropertyNameCaseInsensitive = true
+                    DateFormatString = "dd/MM/yyyy"
                 });
-
                 return l_getStatus;
             }
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Erreur sur la deserialisation fichier status.json");
+                throw ex;
             }
-            return null;
         }
-
     }
 }

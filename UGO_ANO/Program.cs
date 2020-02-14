@@ -40,7 +40,10 @@ namespace UGO_ANO
 
                 int l_result = l_database.CheckTableColumnType(l_param.DataToAno);
                 if (l_result != 0)
+                {
+                    Console.ReadKey();
                     return;
+                }
 
                 #endregion
 
