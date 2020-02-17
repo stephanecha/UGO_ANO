@@ -61,7 +61,7 @@ namespace NUnit_UGO_ANO
             l_newStatus.Lines = 123456789;
             l_newStatus.LogName = "LogName.log";
             l_newStatus.State = 1;
-            l_newStatus.Year = 2020;
+            l_newStatus.Date = DateTime.Now;
 
             CommonTools.SerialStatus(l_newStatus, "statut.json");
             FileAssert.Exists("statut.json");

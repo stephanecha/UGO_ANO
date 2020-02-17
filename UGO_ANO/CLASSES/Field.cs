@@ -13,7 +13,6 @@ namespace UGO_ANO.CLASSES
         [JsonConverter(typeof(StringEnumConverter))]
         public Type Type { get; set; }
 
-        [JsonProperty(JsonPropertyAttribute.)]
         public int Option { get; set; }
     }
 

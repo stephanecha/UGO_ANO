@@ -24,8 +24,8 @@ namespace UGO_ANO.CLASSES
         {
             string queryString = "select UPPER(TABLE_NAME) as TN, UPPER(COLUMN_NAME) as CN, DATA_TYPE as DT from information_schema.COLUMNS";
             string l_missing = string.Empty;
-            List<InformationSchema> l_listInformationSchema = new List<InformationSchema>();
-            InformationSchema l_temp;
+            List<InfoSchema> l_listInformationSchema = new List<InfoSchema>();
+            InfoSchema l_temp;
 
             try
             {
@@ -38,13 +38,13 @@ namespace UGO_ANO.CLASSES
                     {
                         while (reader.Read())
                         {
-                            l_listInformationSchema.Add(new InformationSchema() { Table = reader[0].ToString(), Column = reader[1].ToString(), Type = reader[2].ToString() });
+                            l_listInformationSchema.Add(new InfoSchema() { Table = reader[0].ToString(), Column = reader[1].ToString(), Type = reader[2].ToString() });
                         }
                     }
 
                     foreach (Field f_field in p_dataToAno)
                     {
-                        l_temp = l_listInformationSchema.Find(delegate (InformationSchema p_is) { return p_is.Table == f_field.Table.ToUpper() && p_is.Column == f_field.Column.ToUpper(); });
+                        l_temp = l_listInformationSchema.Find(delegate (InfoSchema p_is) { return p_is.Table == f_field.Table.ToUpper() && p_is.Column == f_field.Column.ToUpper(); });
                         if (l_temp == null)
                         {
                             Log.Warning(string.Format("Attention la liaison {0}.{1} n'existe pas. Merci de corriger avant de relancer l'application", f_field.Table, f_field.Column));

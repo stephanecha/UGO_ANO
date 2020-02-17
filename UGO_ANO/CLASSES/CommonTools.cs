@@ -3,6 +3,7 @@ using System.IO;
 using Serilog;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Configuration;
 
 namespace UGO_ANO.CLASSES
 {
@@ -122,5 +123,35 @@ namespace UGO_ANO.CLASSES
                 throw ex;
             }
         }
+
+        public static Status InitStatus()
+        {
+            Status l_status = new Status();
+
+            l_status.DateBegin = DateTime.Now;
+            l_status.LogName = ConfigurationManager.AppSettings["serilog:write-to:RollingFile.pathFormat"];
+            l_status.LogName = l_status.LogName.Replace("{Date}", DateTime.Now.ToString("yyyyMMdd"));
+            l_status.State = 0;
+
+            return l_status;
+        }
+
+        public static void UpdateStatus(int p_state, DateTime p_currentDate, int p_nbLines, string p_currentTableColumn = null)
+        {
+            Program.CurrentStatus.State = p_state;
+            Program.CurrentStatus.Lines = p_nbLines;
+            Program.CurrentStatus.Date = p_currentDate;
+            Program.CurrentStatus.CurrentTableColumn = p_currentTableColumn ?? p_currentTableColumn;
+        }
+
+        public static void SetErrorStatus(DateTime p_currentDate, string p_error, int p_nbLines = -1, string p_currentTableColumn = null)
+        {
+            Program.CurrentStatus.State = 2;
+            Program.CurrentStatus.Lines = p_nbLines == -1 ? Program.CurrentStatus.Lines : p_nbLines;
+            Program.CurrentStatus.Date = p_currentDate;
+            Program.CurrentStatus.Error = p_error;
+            Program.CurrentStatus.CurrentTableColumn = p_currentTableColumn ?? p_currentTableColumn;
+        }
+
     }
 }

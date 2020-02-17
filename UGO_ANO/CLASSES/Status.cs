@@ -4,32 +4,32 @@ using System.Runtime.Serialization;
 namespace UGO_ANO.CLASSES
 {
 
-    [DataContract]
     public class Status
     {
-        [DataMember]
+        /// <summary>
+        /// Date de début de traitement
+        /// </summary>
         public DateTime DateBegin { get; set; }
         /// <summary>
         /// State 0 encours, 1 terminé, 2 erreur détectée
         /// </summary>
-        [DataMember]
         public int State { get; set; }
         /// <summary>
         /// Dernière année achevée
         /// </summary>
-        [DataMember]
-        public int Year { get; set; }
+        public DateTime Date { get; set; }
 
+        /// <summary>
+        /// Format : Nom_Table.Nom_Column
+        /// </summary>
+        public string CurrentTableColumn { get; set; }
         /// <summary>
         /// Nombre de lignes modifiées
         /// </summary>
-        [DataMember]
         public int Lines { get; set; }
 
-        [DataMember]
         public string LogName { get; set; }
 
-        [DataMember]
         public string Error { get; set; }
     }
 }

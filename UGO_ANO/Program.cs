@@ -16,24 +16,24 @@ namespace UGO_ANO
         {
             try
             {
-                //Création fichier Lock
+                //Création fichier Lock, à réaliser à la fin
 
                 #region 0 - Chargement des Logs (SeriLog)
                 SeriLog.InitSeriLog();
                 Log.Information("Démarrage de l'anonymisation..");
                 #endregion
 
-                #region 0.1 - Chargement des données depuis le fichier .config
+                #region 1 - Chargement des données depuis le fichier .config
                 string l_urlParam = ConfigurationManager.AppSettings["URL_PARAM"];
                 string l_urlStatus = ConfigurationManager.AppSettings["URL_STATUS"];
                 Log.Information("Chargement des variables .config   OK");
                 #endregion
 
-                #region 1 - Chargement fichier de paramétrage
+                #region 2 - Chargement fichier de paramétrage
                 Param l_param = CommonTools.DeserialParam(l_urlParam);
                 #endregion
 
-                #region 1.2 ping connexion BDD ok, Vérification table colonnes du fichier de paramétrage
+                #region 3 Test ping connexion BDD, Vérification contenu fichier paramétrage
                 Database l_database = new Database();
                 if (!l_database.InitDatabase(l_param.Database))
                     throw new Exception("Impossible de se connecter à la base de données");
@@ -44,11 +44,10 @@ namespace UGO_ANO
                     Console.ReadKey();
                     return;
                 }
-
                 #endregion
 
-                #region 2 - Init etat d'avancement
-                Status l_status = InitStatus();
+                #region 4 - Init etat d'avancement
+                CurrentStatus = CommonTools.InitStatus();
                 #endregion
 
                 //3 - Traitement anonymisation
@@ -80,16 +79,8 @@ namespace UGO_ANO
             Console.ReadKey();
         }
 
-        static Status InitStatus()
-        {
-            Status l_status = new Status();
+        public static Status CurrentStatus { get; set; }
 
-            l_status.DateBegin = DateTime.Now;
-            l_status.LogName = ConfigurationManager.AppSettings["serilog:write-to:RollingFile.pathFormat"];
-            l_status.LogName = l_status.LogName.Replace("{Date}", DateTime.Now.ToString("yyyyMMdd"));
-            l_status.State = 0;
 
-            return l_status;
-        }
     }
 }

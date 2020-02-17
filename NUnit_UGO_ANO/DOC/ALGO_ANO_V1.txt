@@ -1,22 +1,23 @@
 void anonymiser(List<Field> p_listField, int p_yearBegin = -1, int p_yearEnd = -1)
 {
-                //Créer fonction "FactParam" qui retourne l'élément suivant avec comme clé le nom de la table
-                //Cette focntion doit regrouper les colonnes par table
-                Dictionary<string, List<Column>> l_dicToAno = FactParam(p_listField); 
+      //Créer fonction "FactParam" qui retourne l'élément suivant avec comme clé le nom de la table
+      //Cette focntion doit regrouper les colonnes par table
+      Dictionary<string, List<Column>> l_dicToAno = FactParam(p_listField); 
                                
-                //On doit retrouver l'année minimum et l'année maximum pour toutes les tables à l'aide de cette requête (temps de traitement court sur INTEG2) :
-                //select CASE WHEN min(YEAR(CreationDate_DT)) > min(YEAR(UpdateDate_DT)) Then min(YEAR(UpdateDate_DT)) else min(YEAR(CreationDate_DT)) END as yearMin
-                //, CASE WHEN max(YEAR(UpdateDate_DT)) > max(YEAR(CreationDate_DT)) then max(YEAR(UpdateDate_DT)) else max(YEAR(CreationDate_DT)) end as yearMax from T_CLIENT;
-                int yearMin, yearMax;
+      //On doit retrouver l'année minimum et l'année maximum pour toutes les tables à l'aide de cette requête (temps de traitement court sur INTEG2) :
+      //select CASE WHEN min(YEAR(CreationDate_DT)) > min(YEAR(UpdateDate_DT)) Then min(YEAR(UpdateDate_DT)) else min(YEAR(CreationDate_DT)) END as yearMin
+      //, CASE WHEN max(YEAR(UpdateDate_DT)) > max(YEAR(CreationDate_DT)) then max(YEAR(UpdateDate_DT)) else max(YEAR(CreationDate_DT)) end as yearMax from T_CLIENT;
+      int yearMin, yearMax;
+      
+      //On doit croiser le résultat ci-dessus avec les données dans le ficher de paramétrage
 
-                //On doit croiser le résultat ci-dessus avec les données dans le ficher de paramétrage
-
-                //Boucle for par année
-                for (int f_year = yearMin; f_year++ ; f_year <= YearMax)
-                {
-                               foreach(KeyValuePair<string, List<Column> f_table in  l_dicToAno)
-                               {
-                                               //Va récupérer les données en BDD (voir détails plus loin)
+      //Boucle for par année
+      for (int f_year = yearMin; f_year++ ; f_year <= YearMax)
+      {
+        foreach(KeyValuePair<string, List<Column> f_table in  l_dicToAno)
+        {
+            //Mettre a jour le fichier statut.json
+              //Va récupérer les données en BDD (voir détails plus loin)
                                                Dictionary<string, List<Column>> l_listToUpdate = GetSource(f_table.Key, f_table.Value, f_year);
                                
                                                //Va anonymiser les champs (voir détails plus loin)
@@ -29,8 +30,8 @@ void anonymiser(List<Field> p_listField, int p_yearBegin = -1, int p_yearEnd = -
                 }
 }
 
-class Column
-{
+                class Column
+                {
                 string PrimaryKName;
                 object PrimaryKValue;
                 
